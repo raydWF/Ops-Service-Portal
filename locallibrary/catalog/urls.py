@@ -23,7 +23,7 @@ urlpatterns += [
 
 	path('mykeys/', views.LoanedKeysByUserListView.as_view(), name='borrowed-keys'),
 
-	path('key/<uuid:pk>/renew/', views.renew_key_user, name='renew_key_user'),
+	path('key/<uuid:pk>/renew/', views.renew_key_user, name='renew-key-user'),
 
 	path('borrowedKeys/', views.LoanedKeysAllListView.as_view(), name='all-borrowed-keys'),
 

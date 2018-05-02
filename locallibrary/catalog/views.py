@@ -39,9 +39,11 @@ def construction(request):
 
 
 def KeyAgreement(request):
+    keycount = KeyInstance.objects.all().count()
+
     return render(
         request,
-        'catalog/roomkey_agreement.html'
+        'catalog/roomkey_agreement.html',
     )
 # ===================================== KEYS ====================================================
 
@@ -50,14 +52,6 @@ class KeyListView(generic.ListView):
     fields = '__all__'
     template_name = 'catalog/roomkey_list.html'
 
-    # def get_queryset(request):
-
-    #     num_keys=KeyInstance.objects.all().count()
-
-    #     return render(
-    #     request,
-    #     'index.html',context={'num_keys':num_keys}
-    #     )
     
 class KeyDetailView(generic.DetailView):
     model = RoomKey

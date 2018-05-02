@@ -57,7 +57,7 @@ class KeyInstance(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="Unique ID for this particular key")
 
     class Meta:
-        ordering = ["roomkey"]
+        ordering = ["date_in"]
 
 
     def is_overdue(self):

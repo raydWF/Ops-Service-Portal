@@ -14,7 +14,7 @@ class RoomKeyAdmin(admin.ModelAdmin):
 class KeyInstanceAdmin(admin.ModelAdmin):
 	list_display = ('roomkey', 'keyrequest', 'status', 'date_out', 'date_in', 'key_notes', 'id')
 
-	list_filter = ('roomkey', 'status')
+	list_filter = ('roomkey', 'status','date_in')
 
 @admin.register(KeyRequest)
 class KeyRequest(admin.ModelAdmin):
