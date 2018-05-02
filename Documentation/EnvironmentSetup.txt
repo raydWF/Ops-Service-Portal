@@ -1,0 +1,37 @@
+cd ~
+pytSet Up Environment
+
+1. Open Windows PowerShell as an admin
+2. Navigate to file (users/jleung/documents/django)
+3. Create Python virtual environment
+	python -m virtualenv eb-virt
+4. Activate environment
+	cd eb-virt/scripts
+	source activate
+5. Install django
+	pip install django
+6. Start Django project
+	django-admin startproject ebdjango
+
+Configure Environment for AWS Elastic Beanstalk
+
+1. Save output to requirements.txt
+	pip freeze > requirements.txt
+2. Create new directory (.ebextensions) and add configuration file named django.config with:
+		option_settings:
+ 			 aws:elasticbeanstalk:container:python:
+   				 WSGIPath: ebdjango/wsgi.py
+3. Deactivate environment
+
+Deploy With EB CLI
+
+1. Initialize EB CLI repository
+	eb init
+2. Create an environment and deploy
+	eb create
+3. Copy over django files
+	- make sure you change allowed_hosts in settings.py
+4. Update django files and deploy
+	py -3 manage.py makemigrations
+	py -3 manage.py migrate
+	eb deploy
