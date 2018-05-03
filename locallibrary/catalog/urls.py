@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from django.conf.urls import handler404, handler500
 from django.views.generic import TemplateView
+from django.conf.urls import include
 
 urlpatterns = [
 	
@@ -58,4 +59,8 @@ urlpatterns += [
 	path('move-request/', views.MoveRequestListView.as_view(), name='move-home'),
 
 
+]
+
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

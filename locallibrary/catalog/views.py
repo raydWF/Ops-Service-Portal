@@ -39,7 +39,6 @@ def construction(request):
 
 
 def KeyAgreement(request):
-    keycount = KeyInstance.objects.all().count()
 
     return render(
         request,
